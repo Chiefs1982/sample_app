@@ -10,6 +10,7 @@ gem 'gravatar_image_tag', '0.1.0'
 
 group :development do
   gem 'rspec-rails', '2.14.1'
+  gem 'webrick', '1.3.1'
 end
 
 group :test do
