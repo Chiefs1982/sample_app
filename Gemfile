@@ -17,6 +17,9 @@ group :test do
   gem 'rspec', '2.14.1'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
+  gem 'rspec-core', '2.14.7'
+  gem 'rspec-expectations', '2.14.4'
+  gem 'rspec-mocks', '2.14.4'
 end
 
 # Gems used only for assets and not required

@@ -139,6 +139,9 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.13)
   rspec (= 2.14.1)
+  rspec-core (= 2.14.7)
+  rspec-expectations (= 2.14.4)
+  rspec-mocks (= 2.14.4)
   rspec-rails (= 2.14.1)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
