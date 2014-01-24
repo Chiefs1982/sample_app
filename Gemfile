@@ -7,10 +7,12 @@ gem 'rails', '3.2.13'
 
 gem 'mysql2'
 gem 'gravatar_image_tag', '0.1.0'
+gem 'will_paginate', '3.0.3'
 
 group :development do
   gem 'rspec-rails', '2.14.1'
   gem 'webrick', '1.3.1'
+  gem 'faker', '0.3.1'
 end
 
 group :test do
