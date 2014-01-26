@@ -58,6 +58,28 @@ describe UsersController do
         response.should have_selector("a", :href => "/users?page=2", :content => "Next")
       end
       
+      describe "as non admin user" do
+        
+        it "should not show delete links" do
+          get :index
+          response.should_not have_selector("a", :content => "delete")
+        end
+        
+      end
+      
+      describe "as admin user" do
+        
+        before(:each) do
+          admin = Factory(:user, :email => "admin@example.com", :admin => true)
+          test_sign_in(admin)
+        end
+        
+        it "should show delete links" do
+          get :index
+          response.should have_selector("a", :content => "delete")
+        end
+        
+      end
     end
     
   end
@@ -103,6 +125,22 @@ describe UsersController do
       get :new
       response.should have_selector("title", :content => "Sign up")
     end
+    
+    describe "as an already signed in user" do
+      
+      before(:each) do
+        @user = Factory(:user)
+        test_sign_in(@user)
+      end
+      
+      it "should redirect to 'root_path'" do
+        get :new
+        response.should redirect_to(root_path)
+      end
+      
+      
+    end
+    
   end
   
   describe "POST 'create'" do
@@ -290,11 +328,13 @@ describe UsersController do
       end
     end
     
+    
+    
     describe "as an admin user" do
       
       before(:each) do
-        admin = Factory(:user, :email => "admin@example.com", :admin => true)
-        test_sign_in(admin)
+        @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        test_sign_in(@admin)
       end
       
       it "should destroy the user" do
@@ -306,6 +346,12 @@ describe UsersController do
       it "should redirect to the users page" do
         delete :destroy, :id => @user
         response.should redirect_to(users_path)
+      end
+      
+      it "should not destroy themselves" do
+        lambda do
+          delete :destroy, :id => @admin
+        end.should_not change(User, :count)
       end
       
     end

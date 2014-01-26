@@ -60,8 +60,6 @@ GEM
     mini_portile (0.5.2)
     multi_json (1.8.2)
     mysql2 (0.3.14)
-    nokogiri (1.6.1)
-      mini_portile (~> 0.5.0)
     nokogiri (1.6.1-x86-mingw32)
       mini_portile (~> 0.5.0)
     polyglot (0.3.3)
@@ -137,6 +135,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  execjs
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)
   gravatar_image_tag (= 0.1.0)
