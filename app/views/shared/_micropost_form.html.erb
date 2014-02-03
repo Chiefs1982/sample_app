@@ -1,0 +1,11 @@
+<%= form_for @micropost do |f| %>
+  <%= render 'layouts/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.text_area :content, :id => "micropost_content", :maxlength => 140, :rows => 3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Post" %>
+    <div class="char_left"></div>
+  </div>
+  
+<% end %>
