@@ -21,9 +21,7 @@ describe "Pages" do
           it "should equal number of 1 post" do
             one_regex = /1 micropost/
             visit root_path
-            response.should have_selector("microposts") do |one|
-              one.should contain(one_regex)
-            end
+            response.should have_selector("span.microposts", :content => "1 micropost")
           end
           
         end
